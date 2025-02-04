@@ -1,54 +1,32 @@
-// eslint-disable-next-line no-unused-vars
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { IoClose, IoMenu } from 'react-icons/io5';
-import "./Navbar.css";
+import './Navbar.css';
 
 const Navbar = () => {
-    const [showMenu, setShowMenu] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
-        setShowMenu(!showMenu);
+        setIsOpen(!isOpen);
     };
 
-    const closeMenuOnMobile = () => {
-        if (window.innerWidth <= 1150){
-            setShowMenu(false);
-        }
-    };
-  return (
-    <header className="header">
-        <nav className="nav container">
-            <NavLink to="/">Navbar</NavLink>
-            <div className={`nav__menu ${showMenu ? "show-menu" : ""}`} id="nav-menu">
-                <ul className="nav__list">
-                    <li className="nav__item">
-                        <NavLink to="/" className="nav__link" onClick={closeMenuOnMobile}>Home</NavLink>
-                    </li>
-                    <li className="nav__item">
-                        <NavLink to="/about" className="nav__link" onClick={closeMenuOnMobile}>About</NavLink>
-                    </li>
-                    <li className="nav__item">
-                        <NavLink to="/skills" className="nav__link" onClick={closeMenuOnMobile}>Skills</NavLink>
-                    </li>
-                    <li className="nav__item">
-                        <NavLink to="/work" className="nav__link" onClick={closeMenuOnMobile}>Work</NavLink>
-                    </li>
-                    <li className="nav__item">
-                        <NavLink to="/contact" className="nav__link" onClick={closeMenuOnMobile}>Contact</NavLink>
-                    </li>
-                </ul>
-                <div className="nav__close" id="nav-close" onClick={toggleMenu}>
-                    <IoClose />
-                </div>
+    return (
+        <div className="navbar">
+            <div className="header">
+                <h1>Stock Market Insight Dashboard</h1>
+                <button onClick={toggleMenu}>
+                    {isOpen ? <IoClose /> : <IoMenu />}
+                </button>
             </div>
-
-            <div className="nav__toggle" id="nav-toggle" onClick={toggleMenu}>
-                <IoMenu />
-            </div>
-        </nav>
-    </header>
-  );
+            {isOpen && (
+                <nav>
+                    <NavLink to="/">Home</NavLink>
+                    <NavLink to="/dashboard">Dashboard</NavLink>
+                    <NavLink to="/about">About</NavLink>
+                </nav>
+            )}
+        </div>
+    );
 };
 
 export default Navbar;
