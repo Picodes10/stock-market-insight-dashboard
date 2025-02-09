@@ -1,114 +1,56 @@
-.header {
-    width: 100%;
-    background-color: #1a1a2e;
+nav {
+    background-color: #333;
     color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    position: fixed;
-    top: 0;
-    z-index: 1000;
-}
-
-/* Navigation Bar */
-.nav {
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Navbar Brand */
-.nav a {
+  }
+  
+  nav li {
+    margin-right: 20px;
+  }
+  
+  nav a {
     color: #fff;
     text-decoration: none;
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-/* Navbar Menu */
-.nav__menu {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    transition: transform 0.3s ease;
-}
-
-/* Responsive Navbar - Hidden by Default */
-.nav__menu.show-menu {
-    display: flex;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background-color: #1a1a2e;
-    flex-direction: column;
-    width: 100%;
-    padding: 1rem 0;
-    transform: translateY(0);
-}
-
-.nav__menu:not(.show-menu) {
-    transform: translateY(-100%);
-}
-
-/* Navbar Links */
-.nav__list {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-}
-
-.nav__item {
-    margin: 0;
-}
-
-.nav__link {
+    transition: color 0.2s ease;
+  }
+  
+  nav a:hover {
+    color: #ccc;
+  }
+  
+  nav button {
+    background-color: #333;
+    border: none;
     color: #fff;
-    text-decoration: none;
-    font-size: 2rem;
-    padding: 0;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.nav__link:hover {
-    background-color: #e94560;
-    color: #fff;
-}
-
-/* Close Icon */
-.nav__close {
-    display: none;
-    color: #fff;
-    font-size: 1.5rem;
-    margin-top: 1rem;
+    padding: 10px;
+    font-size: 16px;
     cursor: pointer;
-}
-
-/* Toggle Button */
-.nav__toggle {
-    display: none;
-    color: #fff;
-    font-size: 1.8rem;
-    cursor: pointer;
-}
-
-/* Responsive Design */
-@media screen and (max-width: 1150px) {
-    .nav__menu {
-        display: none;
+  }
+  
+  nav button:hover {
+    background-color: #444;
+  }
+  
+  @media (max-width: 768px) {
+    nav ul {
+      flex-direction: column;
+      align-items: center;
     }
-
-    .nav__menu.show-menu {
-        display: flex;
+    nav li {
+      margin-right: 0;
     }
-
-    .nav__close {
-        display: block;
+    nav a {
+      padding: 10px;
+      display: block;
     }
-
-    .nav__toggle {
-        display: block;
-    }
-}
+  }
